@@ -39,8 +39,8 @@ RUN cat /tmp/ubuntu-bonic.source > /etc/apt/sources.list
 #####
 # Add proxy
 #####
-ENV HTTP_PROXY=192.168.2.107:7890
-ENV HTTPS_PROXY=192.168.2.107:7890
+ENV HTTP_PROXY=http://192.168.2.107:7890
+ENV HTTPS_PROXY=http://192.168.2.107:7890
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_TERSE true
