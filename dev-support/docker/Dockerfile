@@ -30,6 +30,18 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo APT::Install-Recommends "0"\; > /etc/apt/apt.conf.d/10disableextras
 RUN echo APT::Install-Suggests "0"\; >>  /etc/apt/apt.conf.d/10disableextras
 
+#####
+# Change source list
+#####
+COPY ./ubuntu-bonic.source /tmp/
+RUN cat /tmp/ubuntu-bonic.source > /etc/apt/sources.list
+
+#####
+# Add proxy
+#####
+ENV HTTP_PROXY=192.168.2.107:7890
+ENV HTTPS_PROXY=192.168.2.107:7890
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_TERSE true
 
