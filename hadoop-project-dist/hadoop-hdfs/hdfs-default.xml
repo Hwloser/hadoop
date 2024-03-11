@@ -4470,6 +4470,15 @@
 </property>
 
 <property>
+  <name>dfs.client.failover.lazy.resolved</name>
+  <value>false</value>
+  <description>
+    Used to enable lazy resolution of host->ip. If the value is true,
+    the host will only be resolved only before Dfsclient needs to request the host.
+  </description>
+</property>
+
+<property>
   <name>dfs.client.key.provider.cache.expiry</name>
   <value>864000000</value>
   <description>
@@ -5422,6 +5431,24 @@
   <description>
     Timeout in seconds for block reconstruction.  If this value is 0 or less,
     then it will default to 5 minutes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.excess.redundancy.timeout-sec</name>
+  <value>3600</value>
+  <description>
+    Timeout in seconds for excess redundancy block. If this value is 0 or less,
+    then it will default to 3600 minutes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.excess.redundancy.timeout.check.limit</name>
+  <value>1000</value>
+  <description>
+    Limits number of blocks used to check for excess redundancy timeout.
+    If this value is 0 or less, then it will default to 1000.
   </description>
 </property>
 
@@ -6539,6 +6566,22 @@
     <description>
       The default prefix key to construct the uniqKey for one DFSOutputStream.
       If the namespace is DEFAULT, it's best to change this conf to other value.
+    </description>
+  </property>
+  <property>
+    <name>dfs.client.congestion.backoff.mean.time</name>
+    <value>5000</value>
+    <description>
+      The mean time in milliseconds which is used to compute
+      client congestion backoff sleep time.
+    </description>
+  </property>
+  <property>
+    <name>dfs.client.congestion.backoff.max.time</name>
+    <value>50000</value>
+    <description>
+      The max time in milliseconds which is used to restrict
+      the upper limit backoff sleep time for client.
     </description>
   </property>
   <property>
